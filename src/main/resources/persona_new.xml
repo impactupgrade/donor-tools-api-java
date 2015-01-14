@@ -1,0 +1,71 @@
+<persona>
+  <birthday type="date" nil="true"></birthday>
+  <company-name nil="true"></company-name>
+  <created-at type="datetime" nil="true"></created-at>
+  <deceased type="boolean">false</deceased>
+  <department nil="true"></department>
+  <gender type="integer" nil="true"></gender>
+  <is-company type="boolean">false</is-company>
+  <job-title nil="true"></job-title>
+  <legacy-id nil="true"></legacy-id>
+  <meta nil="true"></meta>
+  <recognition-name nil="true"></recognition-name>
+  <salutation nil="true"></salutation>
+  <salutation-formal nil="true"></salutation-formal>
+  <updated-at type="datetime" nil="true"></updated-at>
+  <names type="array">
+    <name>
+      <first-name nil="true"></first-name>
+      <last-name nil="true"></last-name>
+      <middle-name nil="true"></middle-name>
+      <name-type-id type="integer" nil="true"></name-type-id>
+      <position type="integer" nil="true"></position>
+      <prefix nil="true"></prefix>
+      <suffix nil="true"></suffix>
+    </name>
+  </names>
+  <addresses type="array">
+    <address>
+      <city nil="true"></city>
+      <country nil="true"></country>
+      <do-not-mail type="boolean">false</do-not-mail>
+      <position type="integer" nil="true"></position>
+      <postal-code nil="true"></postal-code>
+      <state nil="true"></state>
+      <street-address nil="true"></street-address>
+      <time-zone nil="true"></time-zone>
+      <address-type-id type="integer" nil="true"></address-type-id>
+    </address>
+  </addresses>
+  <phone-numbers type="array">
+    <phone-number>
+      <address-type-id type="integer" nil="true"></address-type-id>
+      <do-not-call type="boolean">false</do-not-call>
+      <extension nil="true"></extension>
+      <phone-number nil="true"></phone-number>
+      <position type="integer" nil="true"></position>
+    </phone-number>
+  </phone-numbers>
+  <email-addresses type="array">
+    <email-address>
+      <address-type-id type="integer" nil="true"></address-type-id>
+      <do-not-email type="boolean">false</do-not-email>
+      <email-address nil="true"></email-address>
+      <position type="integer" nil="true"></position>
+    </email-address>
+  </email-addresses>
+  <web-addresses type="array">
+    <web-address>
+      <address-type-id type="integer" nil="true"></address-type-id>
+      <position type="integer" nil="true"></position>
+      <web-address nil="true"></web-address>
+    </web-address>
+  </web-addresses>
+  <twitter-usernames type="array">
+    <twitter-username>
+      <address-type-id type="integer" nil="true"></address-type-id>
+      <position type="integer" nil="true"></position>
+      <twitter-username nil="true"></twitter-username>
+    </twitter-username>
+  </twitter-usernames>
+</persona>
