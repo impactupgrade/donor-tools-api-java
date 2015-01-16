@@ -1,0 +1,36 @@
+<donation>
+  <amount-in-cents type="integer">0</amount-in-cents>
+  <bank-name nil="true"></bank-name>
+  <bank-number nil="true"></bank-number>
+  <batch-date type="datetime" nil="true"></batch-date>
+  <batch-number nil="true"></batch-number>
+  <check-date type="date" nil="true"></check-date>
+  <check-number nil="true"></check-number>
+  <completed-at type="datetime" nil="true"></completed-at>
+  <created-at type="datetime" nil="true"></created-at>
+  <currency nil="true"></currency>
+  <declined-reason nil="true"></declined-reason>
+  <donation-type-id type="integer" nil="true"></donation-type-id>
+  <intact-id nil="true"></intact-id>
+  <legacy-id nil="true"></legacy-id>
+  <memo nil="true"></memo>
+  <payment-status nil="true"></payment-status>
+  <persona-id type="integer" nil="true"></persona-id>
+  <pledge-id type="integer" nil="true"></pledge-id>
+  <received-on type="date">2015-01-16</received-on>
+  <source-id type="integer" nil="true"></source-id>
+  <transaction-fee-in-cents type="integer" nil="true"></transaction-fee-in-cents>
+  <transaction-id nil="true"></transaction-id>
+  <updated-at type="datetime" nil="true"></updated-at>
+  <amount type="Money">0.00</amount>
+  <transaction-fee type="Money">0.00</transaction-fee>
+  <splits type="array">
+    <split>
+      <amount-in-cents type="integer" nil="true"></amount-in-cents>
+      <donation-id type="integer" nil="true"></donation-id>
+      <fund-id type="integer" nil="true"></fund-id>
+      <memo nil="true"></memo>
+      <amount type="Money">0.00</amount>
+    </split>
+  </splits>
+</donation>

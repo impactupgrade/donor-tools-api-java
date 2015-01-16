@@ -35,6 +35,9 @@ public class Persona {
 	private Date firstDonationDate;
 	private BigDecimal firstDonationAmount;
 	private List<Name> names;
+	private List<EmailAddress> emailAddresses;
+	private List<Address> addresses;
+	private List<PhoneNumber> phoneNumbers;
 	
 	public static class Name {
 		
@@ -62,8 +65,75 @@ public class Persona {
 	}
 	
 	public static class Address {
-		private Integer id;
+		private String city;
+		private String country;
+		private String postalCode;
+		private String state;
+		private String streetAddress;
+		public String getCity() {
+			return city;
+		}
+		public void setCity(String city) {
+			this.city = city;
+		}
+		public String getCountry() {
+			return country;
+		}
+		public void setCountry(String country) {
+			this.country = country;
+		}
+		public String getPostalCode() {
+			return postalCode;
+		}
+		public void setPostalCode(String postalCode) {
+			this.postalCode = postalCode;
+		}
+		public String getState() {
+			return state;
+		}
+		public void setState(String state) {
+			this.state = state;
+		}
+		public String getStreetAddress() {
+			return streetAddress;
+		}
+		public void setStreetAddress(String streetAddress) {
+			this.streetAddress = streetAddress;
+		}
+		
+		
 	}
+	
+	public static class PhoneNumber {
+		private String extension;
+		private String phoneNumber;
+		public String getExtension() {
+			return extension;
+		}
+		public void setExtension(String extension) {
+			this.extension = extension;
+		}
+		public String getPhoneNumber() {
+			return phoneNumber;
+		}
+		public void setPhoneNumber(String phoneNumber) {
+			this.phoneNumber = phoneNumber;
+		}
+	}
+	
+	public static class EmailAddress {
+		private String emailAddress;
+		
+		public String getEmailAddress() {
+			return emailAddress;
+		}
+		
+		public void setEmailAddress(String emailAddress) {
+			this.emailAddress = emailAddress;
+		}
+	}
+	
+	
 	
 	public List<Name> getNames() {
 		return names;
@@ -80,6 +150,31 @@ public class Persona {
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
+	
+	public void setEmailAddresses(List<EmailAddress> emailAddresses) {
+		this.emailAddresses = emailAddresses;
+	}
+	
+	public List<EmailAddress> getEmailAddresses() {
+		return emailAddresses;
+	}
+	
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+	
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+	
+	public List<PhoneNumber> getPhoneNumbers() {
+		return phoneNumbers;
+	}
+	
+	public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
+		this.phoneNumbers = phoneNumbers;
+	}
+	
 	
 	@Override
 	public String toString() {
