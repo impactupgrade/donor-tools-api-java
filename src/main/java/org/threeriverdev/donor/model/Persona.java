@@ -42,7 +42,6 @@ public class Persona {
 	public static class Name {
 		
 		public Name() {
-			
 		}
 		
 		public Name(String firstName, String lastName) {
@@ -70,6 +69,11 @@ public class Persona {
 		private String postalCode;
 		private String state;
 		private String streetAddress;
+		
+		public Address(String city, String country) {
+			this.city = city;
+			this.country = country;
+		}
 		public String getCity() {
 			return city;
 		}
@@ -107,6 +111,11 @@ public class Persona {
 	public static class PhoneNumber {
 		private String extension;
 		private String phoneNumber;
+		
+		public PhoneNumber(String extension, String phoneNumber) {
+			this.extension = extension;
+			this.phoneNumber = phoneNumber;
+		}
 		public String getExtension() {
 			return extension;
 		}
@@ -124,6 +133,10 @@ public class Persona {
 	public static class EmailAddress {
 		private String emailAddress;
 		
+		public EmailAddress(String emailAddress) {
+			this.emailAddress = emailAddress;
+		}
+
 		public String getEmailAddress() {
 			return emailAddress;
 		}
@@ -175,6 +188,29 @@ public class Persona {
 		this.phoneNumbers = phoneNumbers;
 	}
 	
+	public void addPhoneNumber(PhoneNumber phoneNumber) {
+		if (phoneNumbers == null)
+			phoneNumbers = new ArrayList<PhoneNumber>();
+		phoneNumbers.add(phoneNumber);
+	}
+	
+	public void addEmailAddress(EmailAddress emailAddress) {
+		if (emailAddresses == null)
+			emailAddresses = new ArrayList<EmailAddress>();
+		emailAddresses.add(emailAddress);
+	}
+	
+	public void addName(Name name) {
+		if (names == null)
+			names = new ArrayList<Name>();
+		names.add(name);
+	}
+	
+	public void addAddress(Address address) {
+		if (addresses == null)
+			addresses = new ArrayList<Address>();
+		addresses.add(address);
+	}
 	
 	@Override
 	public String toString() {

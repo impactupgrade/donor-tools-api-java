@@ -10,12 +10,21 @@ import java.util.List;
  *
  */
 public class Donation {
+	private Integer id;
 	private Integer amountInCents;
 	private Integer donationTypeId;
 	private Integer personaId;
 	private Integer sourceId;
 	private List<Split> splits;
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Integer getAmountInCents() {
 		return amountInCents;
 	}

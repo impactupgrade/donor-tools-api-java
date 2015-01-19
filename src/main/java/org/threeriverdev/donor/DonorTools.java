@@ -1,8 +1,6 @@
 package org.threeriverdev.donor;
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -63,7 +61,7 @@ public class DonorTools {
 		return target;
 	}
 	
-	public static Persona create(Persona persona) throws Exception {
+	public static Integer create(Persona persona) throws Exception {
 		
 		WebTarget target = getTarget("/people.xml");
 		
@@ -72,32 +70,43 @@ public class DonorTools {
 		setValue(document, "//first-name", persona.getNames().get(0).getFirstName());
 		setValue(document, "//last-name", persona.getNames().get(0).getLastName());
 		
-		setValue(document, "//email-addresses/email-address/email-address",
-				persona.getEmailAddresses().get(0).getEmailAddress());
+		if (persona.getEmailAddresses() != null && persona.getEmailAddresses().size() > 0) {
+			setValue(document, "//email-addresses/email-address/email-address",
+					persona.getEmailAddresses().get(0).getEmailAddress());
+		}
 
-		setValue(document, "//addresses/address/city",
-				persona.getAddresses().get(0).getCity());
-		setValue(document, "//addresses/address/country",
-				persona.getAddresses().get(0).getCountry());
-		setValue(document, "//addresses/address/postalCode",
-				persona.getAddresses().get(0).getPostalCode());
-		setValue(document, "//addresses/address/state",
-				persona.getAddresses().get(0).getState());
-		setValue(document, "//addresses/address/streetAddress",
-				persona.getAddresses().get(0).getStreetAddress());
+		if (persona.getAddresses() != null && persona.getAddresses().size() > 0) {
+			setValue(document, "//addresses/address/city",
+					persona.getAddresses().get(0).getCity());
+			setValue(document, "//addresses/address/country",
+					persona.getAddresses().get(0).getCountry());
+			setValue(document, "//addresses/address/postalCode",
+					persona.getAddresses().get(0).getPostalCode());
+			setValue(document, "//addresses/address/state",
+					persona.getAddresses().get(0).getState());
+			setValue(document, "//addresses/address/streetAddress",
+					persona.getAddresses().get(0).getStreetAddress());
+		}
 
 	
-		setValue(document, "//addresses/phone-numbers/phone-number",
-				persona.getPhoneNumbers().get(0).getPhoneNumber());
-		setValue(document, "//addresses/phone-numbers/extension",
-				persona.getPhoneNumbers().get(0).getExtension());
+		if (persona.getPhoneNumbers() != null && persona.getPhoneNumbers().size() > 0) {
+			setValue(document, "//phone-numbers/phone-number/phone-number",
+					persona.getPhoneNumbers().get(0).getPhoneNumber());
+			setValue(document, "//phone-numbers/phone-number/extension",
+					persona.getPhoneNumbers().get(0).getExtension());
+		}
 
 		
 		Entity<String> entity = Entity.entity(getString(document), MediaType.APPLICATION_XML_TYPE);
 		// create persona
 		Response resp = target.request(MediaType.APPLICATION_XML_TYPE).post(entity);
 		
-		return persona;
+		String result = resp.readEntity(String.class);
+		
+		Document doc = buildDocumentFromString(result);
+		
+		return Integer.valueOf(getValue(doc, "//id"));
+		
 	}
 
 	public static List<Persona> listPersonas() {
@@ -112,7 +121,7 @@ public class DonorTools {
 		try {
 			org.jdom2.Document document = builder1.build(new StringReader(result));
 			Element rootNode = document.getRootElement();
-			List personas = rootNode.getChildren("persona");
+			List<?> personas = rootNode.getChildren("persona");
 			for (Object personaObj: personas) {
 				Persona persona = new Persona();
 				Element xmlPersona = (Element) personaObj;
@@ -128,7 +137,7 @@ public class DonorTools {
 	}
 
 	
-	public static Donation create(Donation donation) throws Exception {
+	public static Integer create(Donation donation) throws Exception {
 		
 		WebTarget target = getTarget("/donations.xml");
 		
@@ -153,15 +162,9 @@ public class DonorTools {
 		
 		String result = resp.readEntity(String.class);
 		
-		
 		Document doc = buildDocumentFromString(result);
 		
-		Donation newDonation = new Donation();
-		newDonation.setAmountInCents( Integer.valueOf(getValue(doc, "//amount-in-cents")) );
-		newDonation.setDonationTypeId( Integer.valueOf(getValue(doc, "//donation-type-id")) );
-		newDonation.setPersonaId( Integer.valueOf(getValue(doc, "//persona-id")) );
-		
-		return newDonation;
+		return Integer.valueOf(getValue(doc, "//id"));
 	}
 	
 	private static XPathFactory xfactory = XPathFactory.newInstance();
