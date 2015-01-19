@@ -22,15 +22,12 @@
   <transaction-fee-in-cents type="integer" nil="true"></transaction-fee-in-cents>
   <transaction-id nil="true"></transaction-id>
   <updated-at type="datetime" nil="true"></updated-at>
-  <amount type="Money">0.00</amount>
-  <transaction-fee type="Money">0.00</transaction-fee>
   <splits type="array">
     <split>
       <amount-in-cents type="integer" nil="true"></amount-in-cents>
       <donation-id type="integer" nil="true"></donation-id>
       <fund-id type="integer" nil="true"></fund-id>
       <memo nil="true"></memo>
-      <amount type="Money">0.00</amount>
     </split>
   </splits>
 </donation>
