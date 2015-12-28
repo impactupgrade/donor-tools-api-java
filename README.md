@@ -71,8 +71,8 @@ List<Persona> personas = client.listPersonas();
 ```xml
 <server>
   <id>ossrh</id>
-  ***REMOVED***
-  ***REMOVED***
+  <username>USERNAME</username>
+  <password>PASSWORD</password>
 </server>
 ```
 2. mvn clean deploy
@@ -83,8 +83,8 @@ List<Persona> personas = client.listPersonas();
 ```xml
 <server>
   <id>ossrh</id>
-  ***REMOVED***
-  ***REMOVED***
+  <username>USERNAME</username>
+  <password>PASSWORD</password>
 </server>
 ```
 2. mvn versions:set -DnewVersion=1.2.3.Final
