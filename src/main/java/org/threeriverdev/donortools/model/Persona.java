@@ -43,7 +43,7 @@ public class Persona {
 		
 		public Name() {
 		}
-		
+
 		public Name(String firstName, String lastName) {
 			this.firstName = firstName;
 			this.lastName = lastName;
@@ -53,13 +53,37 @@ public class Persona {
 		private String firstName;
 		private String lastName;
 		private String middleName;
-		
+
+		public Integer getId() {
+			return id;
+		}
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
 		public String getFirstName() {
 			return firstName;
 		}
-		
+
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
+		}
+
 		public String getLastName() {
 			return lastName;
+		}
+
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+
+		public String getMiddleName() {
+			return middleName;
+		}
+
+		public void setMiddleName(String middleName) {
+			this.middleName = middleName;
 		}
 	}
 	
@@ -70,10 +94,6 @@ public class Persona {
 		private String state;
 		private String streetAddress;
 		
-		public Address(String city, String country) {
-			this.city = city;
-			this.country = country;
-		}
 		public String getCity() {
 			return city;
 		}
@@ -111,6 +131,9 @@ public class Persona {
 	public static class PhoneNumber {
 		private String extension;
 		private String phoneNumber;
+
+		public PhoneNumber() {
+		}
 		
 		public PhoneNumber(String extension, String phoneNumber) {
 			this.extension = extension;
@@ -132,6 +155,9 @@ public class Persona {
 	
 	public static class EmailAddress {
 		private String emailAddress;
+
+		public EmailAddress() {
+		}
 		
 		public EmailAddress(String emailAddress) {
 			this.emailAddress = emailAddress;
@@ -145,8 +171,6 @@ public class Persona {
 			this.emailAddress = emailAddress;
 		}
 	}
-	
-	
 	
 	public List<Name> getNames() {
 		return names;

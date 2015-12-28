@@ -1,5 +1,6 @@
 package org.threeriverdev.donortools.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +16,7 @@ public class Donation {
 	private Integer donationTypeId;
 	private Integer personaId;
 	private Integer sourceId;
+	private String memo;
 	private List<Split> splits;
 	
 	public Integer getId() {
@@ -57,6 +59,14 @@ public class Donation {
 		this.sourceId = sourceId;
 	}
 
+	public String getMemo() {
+		return memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+
 	public List<Split> getSplits() {
 		return splits;
 	}
@@ -66,7 +76,9 @@ public class Donation {
 	}
 	
 	public static class Split {
-		
+
+		public Split() {
+		}
 		public Split(Integer amountInCents, Integer fundId) {
 			this.amountInCents = amountInCents;
 			this.fundId = fundId;
@@ -85,7 +97,12 @@ public class Donation {
 		public void setFundId(Integer fundId) {
 			this.fundId = fundId;
 		}
-		
+	}
+
+	public void addSplit(Split split) {
+		if (splits == null)
+			splits = new ArrayList<Split>();
+		splits.add(split);
 	}
 	
 	@Override

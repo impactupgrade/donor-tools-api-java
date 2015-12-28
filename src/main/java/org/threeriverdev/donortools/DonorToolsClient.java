@@ -154,6 +154,7 @@ public class DonorToolsClient {
 		setValue(document, "/donation/donation-type-id", donation.getDonationTypeId());
 		setValue(document, "/donation/persona-id", donation.getPersonaId());
 		setValue(document, "/donation/source-id", donation.getSourceId());
+		setValue(document, "/donation/memo", donation.getMemo());
 		
 		setValue(document, "//splits/split/amount-in-cents", 
 				donation.getSplits().get(0).getAmountInCents());
