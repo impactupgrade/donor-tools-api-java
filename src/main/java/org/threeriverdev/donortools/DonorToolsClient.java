@@ -45,9 +45,7 @@ public class DonorToolsClient {
 	
 	private final Client client = ClientBuilder.newClient();
 
-    private final String endpoint;
-
-    private final HttpAuthenticationFeature authenticationFeature;
+	private final String endpoint;
 
     /**
      * Constructor
@@ -57,13 +55,14 @@ public class DonorToolsClient {
      * @param password Donor Tools password
      */
 	public DonorToolsClient(String endpoint, String username, String password) {
-        this.endpoint = endpoint;
-        authenticationFeature = HttpAuthenticationFeature.basic(username, password);
+		this.endpoint = endpoint;
+
+		HttpAuthenticationFeature authenticationFeature = HttpAuthenticationFeature.basic(username, password);
+		client.register(authenticationFeature);
 	}
 	
 	private WebTarget getTarget(String path) {
 		return client
-				.register(authenticationFeature)
 				.target(endpoint)
 				.path(path);
 	}
@@ -87,11 +86,11 @@ public class DonorToolsClient {
 					persona.getAddresses().get(0).getCity());
 			setValue(document, "//addresses/address/country",
 					persona.getAddresses().get(0).getCountry());
-			setValue(document, "//addresses/address/postalCode",
+			setValue(document, "//addresses/address/postal-code",
 					persona.getAddresses().get(0).getPostalCode());
 			setValue(document, "//addresses/address/state",
 					persona.getAddresses().get(0).getState());
-			setValue(document, "//addresses/address/streetAddress",
+			setValue(document, "//addresses/address/street-address",
 					persona.getAddresses().get(0).getStreetAddress());
 		}
 

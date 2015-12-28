@@ -17,7 +17,7 @@
   <payment-status nil="true"></payment-status>
   <persona-id type="integer" nil="true"></persona-id>
   <pledge-id type="integer" nil="true"></pledge-id>
-  <received-on type="date">2015-01-16</received-on>
+  <received-on type="date"></received-on>
   <source-id type="integer" nil="true"></source-id>
   <transaction-fee-in-cents type="integer" nil="true"></transaction-fee-in-cents>
   <transaction-id nil="true"></transaction-id>
