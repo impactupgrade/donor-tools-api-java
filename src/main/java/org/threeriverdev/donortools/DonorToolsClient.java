@@ -1,10 +1,14 @@
-package org.threeriverdev.donor;
+package org.threeriverdev.donortools;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
+import org.apache.commons.io.IOUtils;
+import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.threeriverdev.donortools.model.Donation;
+import org.threeriverdev.donortools.model.Persona;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -25,43 +29,46 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-
-import org.apache.commons.io.IOUtils;
-import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-import org.threeriverdev.donor.model.Donation;
-import org.threeriverdev.donor.model.Persona;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Donor tools API.
+ * Donor Tools Java Client
  * 
  * @author Oleg Gorobets
- *
+ * @author Brett Meyer
  */
-public class DonorTools {
+public class DonorToolsClient {
 	
-	public static String username = "oleg.goro@gmail.com";
-	public static String password = "3river213";
-	
-	private static Client client = ClientBuilder.newClient();
-	
-	private static WebTarget getTarget(String path) {
-		
-		HttpAuthenticationFeature feature = HttpAuthenticationFeature.basic(username, password);
-		
-		WebTarget target = client
-				.register(feature)
-				.target("https://3riverdev.donortools.com")
-				.path(path);
-		
-		return target;
+	private final Client client = ClientBuilder.newClient();
+
+    private final String endpoint;
+
+    private final HttpAuthenticationFeature authenticationFeature;
+
+    /**
+     * Constructor
+     *
+     * @param endpoint Typically "https://[USERNAME].donortools.com"
+     * @param username Donor Tools username
+     * @param password Donor Tools password
+     */
+	public DonorToolsClient(String endpoint, String username, String password) {
+        this.endpoint = endpoint;
+        authenticationFeature = HttpAuthenticationFeature.basic(username, password);
 	}
 	
-	public static Integer create(Persona persona) throws Exception {
+	private WebTarget getTarget(String path) {
+		return client
+				.register(authenticationFeature)
+				.target(endpoint)
+				.path(path);
+	}
+	
+	public Integer create(Persona persona) throws Exception {
 		
 		WebTarget target = getTarget("/people.xml");
 		
@@ -109,7 +116,7 @@ public class DonorTools {
 		
 	}
 
-	public static List<Persona> listPersonas() {
+	public List<Persona> listPersonas() {
 		List<Persona> people = new ArrayList<Persona>();
 		
 		WebTarget target = getTarget("/people.xml");
@@ -137,7 +144,7 @@ public class DonorTools {
 	}
 
 	
-	public static Integer create(Donation donation) throws Exception {
+	public Integer create(Donation donation) throws Exception {
 		
 		WebTarget target = getTarget("/donations.xml");
 		
@@ -193,7 +200,7 @@ public class DonorTools {
 	private static Document buildDocument(String file) throws SAXException, IOException, ParserConfigurationException {
 		DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = builderFactory.newDocumentBuilder();
-		return documentBuilder.parse(DonorTools.class.getResourceAsStream(file));
+		return documentBuilder.parse(DonorToolsClient.class.getResourceAsStream(file));
 	}
 
 	private static Document buildDocumentFromString(String xml) throws SAXException, IOException, ParserConfigurationException {

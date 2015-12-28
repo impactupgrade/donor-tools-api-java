@@ -1,4 +1,4 @@
-package org.threeriverdev.donor.model;
+package org.threeriverdev.donortools.model;
 
 import java.util.List;
 

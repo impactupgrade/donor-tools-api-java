@@ -1,4 +1,4 @@
-package org.threeriverdev.donor.model;
+package org.threeriverdev.donortools.model;
 
 import java.math.BigDecimal;
 import java.util.Date;

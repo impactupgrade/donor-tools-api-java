@@ -1,4 +1,4 @@
-package org.threeriverdev.donor.model;
+package org.threeriverdev.donortools.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Personas are the backbone of recordkeeping in Donor Tools. A persona can have
+ * Personas are the backbone of record keeping in Donor Tools. A persona can have
  * many donations.
  * 
  * @author Oleg Gorobets
