@@ -60,7 +60,7 @@ public class DonorToolsClient {
 		HttpAuthenticationFeature authenticationFeature = HttpAuthenticationFeature.basic(username, password);
 		client.register(authenticationFeature);
 	}
-	
+
 	private WebTarget getTarget(String path) {
 		return client
 				.target(endpoint)
@@ -108,7 +108,7 @@ public class DonorToolsClient {
 		Response resp = target.request(MediaType.APPLICATION_XML_TYPE).post(entity);
 		
 		String result = resp.readEntity(String.class);
-		
+
 		Document doc = buildDocumentFromString(result);
 		
 		return Integer.valueOf(getValue(doc, "//id"));
