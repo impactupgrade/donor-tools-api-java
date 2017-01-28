@@ -154,12 +154,20 @@ public class DonorToolsClient {
 		setValue(document, "/donation/persona-id", donation.getPersonaId());
 		setValue(document, "/donation/source-id", donation.getSourceId());
 		setValue(document, "/donation/memo", donation.getMemo());
-		
-		setValue(document, "//splits/split/amount-in-cents", 
-				donation.getSplits().get(0).getAmountInCents());
-		setValue(document, "//splits/split/fund-id", 
-				donation.getSplits().get(0).getFundId());
-		
+
+		for (int i = 0; i < donation.getSplits().size(); i++) {
+			// Oh so hacky...
+			if (i > 0) {
+				cloneNode(document, "//splits/split[1]");
+			}
+
+			setValue(document, "//splits/split[" + (i+1) + "]/amount-in-cents",
+					donation.getSplits().get(i).getAmountInCents());
+			setValue(document, "//splits/split[" + (i+1) + "]/fund-id",
+					donation.getSplits().get(i).getFundId());
+			setValue(document, "//splits/split[" + (i+1) + "]/memo",
+					donation.getSplits().get(i).getMemo());
+		}
 		
 		String xml = getString(document);
 		Entity<String> entity = Entity.entity(xml, MediaType.APPLICATION_XML_TYPE);
@@ -194,6 +202,17 @@ public class DonorToolsClient {
 			return node.getTextContent();
 		} catch (XPathExpressionException e) {
 		    throw new RuntimeException(e);
+		}
+	}
+
+	private static void cloneNode(Document document, String xpath) {
+		try {
+			XPath xpathObj = xfactory.newXPath();
+			Node node = (Node)xpathObj.evaluate(xpath, document, XPathConstants.NODE);
+			Node clone = node.cloneNode(true);
+			node.getParentNode().appendChild(clone);
+		} catch (XPathExpressionException e) {
+			throw new RuntimeException(e);
 		}
 	}
 	
