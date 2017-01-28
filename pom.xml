@@ -4,7 +4,7 @@
 
     <groupId>org.threeriverdev</groupId>
     <artifactId>donor-tools-api-java</artifactId>
-    <version>1.0.2.Final</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <name>donor-tools-api-java</name>
     <description>
