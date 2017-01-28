@@ -79,12 +79,14 @@ public class Donation {
 
 		public Split() {
 		}
-		public Split(Integer amountInCents, Integer fundId) {
+		public Split(Integer amountInCents, Integer fundId, String memo) {
 			this.amountInCents = amountInCents;
 			this.fundId = fundId;
+			this.memo = memo;
 		}
 		private Integer amountInCents;
 		private Integer fundId;
+		private String memo;
 		public Integer getAmountInCents() {
 			return amountInCents;
 		}
@@ -96,6 +98,12 @@ public class Donation {
 		}
 		public void setFundId(Integer fundId) {
 			this.fundId = fundId;
+		}
+		public String getMemo() {
+			return memo;
+		}
+		public void setMemo(String memo) {
+			this.memo = memo;
 		}
 	}
 
