@@ -1,6 +1,10 @@
 # Donor Tools Java Client
 
-donor-tools-api-java provides a Java client for the Donor Tools (donortools.com) API
+donor-tools-api-java provides a Java client for the [Donor Tools](donortools.com) API
+
+## Impact Upgrade
+
+Nonprofits suffer from three things: 1) constant distractions, 2) a tangled mess of data and tools that hold them back, and 3) really big ideas on the backburner. [Impact Upgrade](https://www.impactupgrade.com) is a technology and operations consulting company, solely focused on closing these gaps. We upgrade your impact and get you back to your mission!
 
 ## Usage
 
@@ -8,16 +12,16 @@ Add the following Maven dependency:
 
 ```xml
 <dependency>
-    <groupId>org.threeriverdev</groupId>
+    <groupId>com.impactupgrade.integration</groupId>
     <artifactId>donor-tools-api-java</artifactId>
-    <version>1.0.0.Final</version>
+    <version>1.0.3.Final</version>
 </dependency>
 ```
 
 Code example:
 
 ```java
-import org.threeriverdev.donortools.*;
+import com.impactupgrade.integration.donortools.*;
 
 ...
 

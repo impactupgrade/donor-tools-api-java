@@ -1,11 +1,11 @@
-package org.threeriverdev.donortools;
+package com.impactupgrade.integration.donortools;
 
 import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
-import org.threeriverdev.donortools.model.Donation;
-import org.threeriverdev.donortools.model.Persona;
+import com.impactupgrade.integration.donortools.model.Donation;
+import com.impactupgrade.integration.donortools.model.Persona;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;

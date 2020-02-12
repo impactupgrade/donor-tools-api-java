@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.threeriverdev</groupId>
+    <groupId>com.impactupgrade.integration</groupId>
     <artifactId>donor-tools-api-java</artifactId>
     <version>1.0.3-SNAPSHOT</version>
 
@@ -10,22 +10,22 @@
     <description>
         donor-tools-api-java provides a Java client for the Donor Tools (donortools.com) API
     </description>
-    <url>https://github.com/3RiverDevelopment/donor-tools-api-java</url>
+    <url>https://github.com/impactupgrade/donor-tools-api-java</url>
     <scm>
-        <url>https://github.com/3RiverDevelopment/donor-tools-api-java</url>
+        <url>https://github.com/impactupgrade/donor-tools-api-java</url>
     </scm>
     <licenses>
         <license>
             <name>GNU LESSER GENERAL PUBLIC LICENSE V3</name>
-            <url>https://github.com/3RiverDevelopment/donor-tools-api-java/blob/master/lgpl-3.0.txt</url>
+            <url>https://github.com/impactupgrade/donor-tools-api-java/blob/master/lgpl-3.0.txt</url>
         </license>
     </licenses>
     <developers>
         <developer>
             <name>Brett Meyer</name>
-            <email>brett@3riverdev.com</email>
-            <organization>3River Development LLC</organization>
-            <organizationUrl>http://www.3riverdev.com</organizationUrl>
+            <email>brett@impactupgrade.com</email>
+            <organization>Impact Upgrade</organization>
+            <organizationUrl>https://www.impactupgrade.com</organizationUrl>
         </developer>
     </developers>
 
