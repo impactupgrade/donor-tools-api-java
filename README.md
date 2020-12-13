@@ -103,4 +103,4 @@ List<Persona> personas = client.listPersonas();
 
 ## License
 
-Licensed under the GNU LESSER GENERAL PUBLIC LICENSE (LGPL) V3.  See lgpl-3.0.txt for more information.
+Licensed under the Apache License, Version 2.0.  See LICENSE-2.0.txt for more information.
